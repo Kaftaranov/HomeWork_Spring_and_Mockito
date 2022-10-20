@@ -1,16 +1,16 @@
 package ru.mockito.demo.Spring_and_Mockito;
-
+import java.lang.Math;
 import java.util.Objects;
 
 public class Employee {
-    private int id;
+    private final Integer id;
     private final String name;
     private final String middlename;
     private final String surname;
     private final double salary;
-    private final int departmentId;
+    private final Integer departmentId;
 
-    public Employee(String name, String middlename, String surname, int departmentId, Double salary, int id)
+    public Employee(String name, String middlename, String surname, Integer departmentId, Double salary, Integer id)
     {   this.name = name;
         this.middlename = middlename;
         this.surname = surname;
@@ -21,13 +21,13 @@ public class Employee {
     public  String getName() {return name;}
     public String getMiddlename(){return middlename;}
     public  String getSurname() {return surname;}
-    public int getId(){return id;}
+    public Integer getId(){return id;}
 
     public Double getSalary() {
         return salary;
     }
 
-    public int getDepartmentId() {
+    public Integer getDepartmentId() {
         return departmentId;
     }
 
@@ -37,7 +37,8 @@ public class Employee {
 
     @Override
     public String toString(){
-        return ("ID " + id + ", "+ name + " " + " " + middlename + " " + surname + ", " + "salary - " + salary);
+        return ("ID " + id + ", "+ name + " " + " " + middlename + " " + surname + ", " + "salary - " +
+                Math.round(salary) + ", department " + departmentId);
     }
 
     @Override

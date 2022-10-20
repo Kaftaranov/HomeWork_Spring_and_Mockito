@@ -4,9 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.Optional;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/employee")
@@ -28,13 +26,9 @@ public class EmployeeController {
         return (employeeService.minSalary());
     }
 
-    public String departmentStaff(Integer departmentId){
-        return (employeeService.departmentStaff(departmentId));
-    }
-
     @GetMapping("allstaff")
-    public Stream<String> Staff(){
-        return (employeeService.allStaff());
+    public String staff(){
+        return (employeeService.allStaff().toString());
     }
 
     @GetMapping("/remove")
